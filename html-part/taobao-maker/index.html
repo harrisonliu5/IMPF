@@ -61,8 +61,9 @@ for( let i =1; i < 21; i++ ){
 let startDis = 0;
 //结束距离
 let endDis = 0;
-//开始滑动
+//是否正在使用手机陀螺仪
 let isDevice = false;
+//开始滑动
 const startMove = (e) => {
     e.preventDefault();
     startDis = e.targetTouches[0].pageX - endDis;
