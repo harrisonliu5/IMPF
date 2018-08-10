@@ -2,7 +2,7 @@
 
 1.垂直手机屏幕的是 gamma->z轴
 
-> z轴转动时，发生角度变化的是*alpha*的值。__作用域(0,360)__。
+> z轴转动时，发生角度变化的是*alpha*的值。__作用域(0,360)__。
 
 2.平行手机长度的是 alpha->y轴
 
@@ -10,7 +10,7 @@
 
 3.平行手机宽度的是 beta->x轴
 
-> x轴转动时，发生角度变化的是*beta*的值。__作用域(-180,180)__。
+> x轴转动时，发生角度变化的是*beta*的值。__作用域(-180,180)__。
 
 # 获取手机陀螺仪信息
 
@@ -31,7 +31,7 @@
             //考虑的xyz上移动加速度的值
 
             //event.accelerationIncludingGravity;
-            //考虑了重力加速度的值
+            //考虑了重力加速度的值
 
             //event.rotationRate;
             //设备旋转的角度
@@ -40,7 +40,7 @@
 
 ## compassneedscalibration
 
-> 用于通知web站点使用罗盘信息校准。
+> 用于通知web站点使用罗盘信息校准。
 
     window.addEventListener("compassneedscalibration",(event)=>{
         //alert('您的罗盘需要校准‘);
