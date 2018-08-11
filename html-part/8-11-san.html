@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box{
+        width: 400px;
+        margin: 40px auto;
+        position: relative;
+    }
+    .box::before{
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 51%;
+        background: #000;
+        width: 5px;
+        height: 350px;
+        z-index: 2;
+    }
+    .box::after{
+        content: '';
+        position: absolute;
+        top: -25px;
+        left: 48%;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        background: linear-gradient(to bottom, #2196F3, #E91E63);
+        z-index: 5;
+        box-shadow: -14px 347px 0px -4px #fff, -14px 354px 0 -4px #fff, -13px 357px 0 0px #000;
+    }
+    .san-left, .san-right{
+        width: 400px;
+        height: 300px;
+        border-radius: 50%;
+        position: absolute;
+    }
+    .san-left{
+        box-shadow: inset 75px -13px 0px 0px red, inset 75px -13px 0px 3px black, inset 150px -50px 0 0 orange, inset 150px -50px 0 3px black;
+    }
+    .san-left::before, .san-right::before{
+        content: '';
+        position: absolute;
+        width: 200px;
+        height: 300px;
+        top: 0;
+        z-index: -1;
+    }
+    .san-left::before{
+        left: 6px;
+        background: yellow;
+        border-radius: 100% 0 0 0;
+    }
+
+   
+    .san-left::after, .san-right::after{
+        content: '';
+        position: absolute;
+        width: 400px;
+        height: 200px;
+        top: 150px;
+        background: #fff;
+    }
+    .san-left::after{
+        left: -10px;
+    }
+
+    .san-right{
+        box-shadow: inset -75px -13px 0px 0px blue, inset -75px -13px 0px 3px black, inset -150px -50px 0 0 palegreen, inset -150px -50px 0 3px black;
+        left: 2.5%;
+    }
+    .san-right::before{
+        left: 49%;
+        background: lightcoral;
+        border-radius: 0 100% 0 0;
+    }
+    .san-right::after{
+        left: 8px;
+    }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="san-left"></div>
+        <div class="san-right"></div>
+    </div>
+  
+</body>
+</html>
