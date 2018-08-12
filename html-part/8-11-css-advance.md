@@ -55,13 +55,41 @@
 
 ## 减少dom的方法
 
-1. box-shadow
+### box-shadow
 > box-shadow: inset| null  x, y, blur, spread, color;
 
-2. border
-3. gradient (linear-gradient,radial-gradient)
+### border
+
+### gradient (linear-gradient,radial-gradient)
+
+#### linear-gradient
 
 > linear-gradient(to [top|bottom|left|right] , color num(占比), .....);
+
+#### radial-gradient
+
+> radial-gradient(((shape || size)(at position)| at position, color-stop);	
+
+1. __position__：主要用来定义径向渐变的圆心位置。此值类似于CSS中background-position属性，用于确定元素渐变的中心位置。如果这个参数省略了，其默认值为“center”。其值主要有以下几种：
+
+    1.1. __length__：用长度值指定径向渐变圆心的横坐标或纵坐标。可以为负值。</br>
+    1.2. __percentage__：用百分比指定径向渐变圆心的横坐标或纵坐标。可以为负值。</br>
+    1.3. left：设置左边为径向渐变圆心的横坐标值。</br>
+    1.4. center：设置中间为径向渐变圆心的横坐标值或纵坐标。</br>
+    1.5. right：设置右边为径向渐变圆心的横坐标值。</br>
+    1.6. top：设置顶部为径向渐变圆心的纵标值。</br>
+    1.7. bottom：设置底部为径向渐变圆心的纵标值。</br>
+
+2. __shape__：主要用来定义径向渐变的形状。其主要包括两个值“circle”和“ellipse”：
+    2.1. circle：如果 __size__ 和 __length__ 大小相等，那么径向渐变是一个圆形，也就是用来指定圆形的径向渐变。</br>
+    2.2 ellipse：如果 __size__ 和 __length__ 大小不相等，那么径向渐变是一个椭圆形，也就是用来指定椭圆形的径向渐变。</br>
+
+3. __size__：主要用来确定径向渐变的结束形状大小。如果省略了，其默认值为“farthest-corner”。可以给其显式的设置一些关键词，主要有：
+
+    3.1 closest-side：指定径向渐变的半径长度为从圆心到离圆心最近的边；</br>
+    3.2 closest-corner：指定径向渐变的半径长度为从圆心到离圆心最近的角；</br>
+    3.3 farthest-side：指定径向渐变的半径长度为从圆心到离圆心最远的边；</br>
+    3.4 farthest-corner：指定径向渐变的半径长度为从圆心到离圆心最远的角；</br>
 
 ## BFC、IFC、GFC、FFC
 
@@ -102,3 +130,9 @@ __当display设置成flex或者inline-flex时产生。__
 3. SUIT
 4. ACSS
 5. ITCSS 
+
+## background 
+
+> background: bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment initial|inherit;
+
+> position/bg-size ->__后面的size代表,x方向拉伸或者缩放，y方向拉伸或者缩放__。

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .san{
+            width: 400px;
+            height: 200px;
+            margin: 40px auto;
+            border-radius: 200px 200px 0 0;
+            background:radial-gradient(60% 150% at 52% 78%,lightblue 50%,lightblue 52%, rgba(0,0,0,0) 32%) 50% 0em / 9em 16em,radial-gradient(60% 150% at 50% 78%,lightyellow 50%,lightyellow 52%, rgba(0,0,0,0) 52%) 50% 0em / 21em 16em,radial-gradient(60% 150% at 50% 78%,lightgreen 50%,lightgreen 52%, lightpink 52%) 50% 0em / 31em 16em;
+            background-repeat: no-repeat;
+            border: 2px solid #000;
+            position: relative;
+        }
+        .san::before{
+            content: '';
+            width: 20px;
+            height: 20px;
+            border: 2px solid #000;
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            margin-top: -25px;
+            margin-left :-10px;
+            border-radius: 50%;
+            box-shadow:  15px 406px 0 1px white, 13px 412px 0 3px #000;
+        }
+         .san::after{
+            content: '';
+            width: 5px;
+            height: 200px;
+           background: #000;
+            position: absolute;
+            top: 200px;
+            left: 50%;
+        }
+    </style>
+    <div class="san"></div>
+</body>
+</html>
