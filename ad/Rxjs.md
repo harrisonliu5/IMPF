@@ -74,9 +74,9 @@ Observable 执行后可以产生三种类型的值：也是subscribe函数的参
 - Error：发送一个javascript的错误或者抛出异常。
 - Complete：停止发送值。
 
-    next: x => console.log(x),
-    error: err => console.error(err),
-    complete: () => console.log('done'),
+        next: x => console.log(x),
+        error: err => console.error(err),
+        complete: () => console.log('done'),
 
 Next类型的通知是最重要也是最常用的一种，它代表了将要传递给观察者的数据。Error 和 Complete 类型的通知在整个Observable的执行过程中只可以发生一次，并且它们是互斥的，只有一个可以发生。
 
@@ -375,3 +375,50 @@ Subject 是允许值多播给观察者，但是 Observable 是单播。
     //20
     //30
     //40
+
+### 实例操作符 vs. 静态操作符
+
+实例操作符是Observable实例上的方法。
+
+实例运算符是使用 this 关键字来指代输入的 Observable 的函数。
+
+    Rx.Observable.prototype.multiplyByTen = function multiplyByTen() {
+        var input = this;
+        return Rx.Observable.create(function subscribe(observer) {
+            input.subscribe({
+            next: (v) => observer.next(10 * v),
+            error: (err) => observer.error(err),
+            complete: () => observer.complete()
+            });
+        });
+    }
+
+静态操作符一般是加在Observable类上的方法，内部一般不依靠this，而是依靠参数。
+通常用来从头开始创建 Observalbe 。
+
+最常用的静态操作符类型是所谓的创建操作符。它们只接收非 Observable 参数，比如数字，然后创建一个新的 Observable ，而不是将一个输入 Observable 转换为输出 Observable 。
+比如：
+    
+    var observable = Rx.Observable.interval(1000 /* 毫秒数 */);
+
+## Scheduler(调度器)
+
+调度器控制着何时启动 subscription 和何时发送通知。
+
+- 调度器是一种数据结构。 它知道如何根据优先级或其他标准来存储任务和将任务进行排序。
+- 调度器是执行上下文。 它表示在何时何地执行任务(举例来说，立即的，或另一种回调函数机制(比如 setTimeout 或 process.nextTick)，或动画帧)。
+- 调度器有一个(虚拟的)时钟。 调度器功能通过它的 getter 方法 now() 提供了“时间”的概念。在具体调度器上安排的任务将严格遵循该时钟所表示的时间。
+
+### 调度器类型
+
+|               调度器	            |                目的                    |
+|----------------------------|------------------------------ |
+|null	                               |       不传递任何调度器的话，会以同步递归的方式发送通知。用于定时操作或尾递归操作。|
+|Rx.Scheduler.queue	        |      当前事件帧中的队列调度(蹦床调度器)。用于迭代操作。                                             |
+|Rx.Scheduler.asap	         |      微任务的队列调度，它使用可用的最快速的传输机制，比如 Node.js 的 process.nextTick() 或 Web Worker 的 MessageChannel 或 setTimeout 或其他。用于异步转换。|
+|Rx.Scheduler.async	|使用 setInterval 的调度。用于基于时间的操作符。                                                                |
+
+静态创建操作符通常可以接收调度器作为参数。 举例来说，from(array, scheduler) ;
+
+- 使用 subscribeOn 来调度 subscribe() 调用在什么样的上下文中执行。
+- 使用 observeOn 来调度发送通知的的上下文。
