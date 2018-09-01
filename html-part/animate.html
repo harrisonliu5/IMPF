@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+     
+        }
+        ul{
+            width: 200px;
+            margin: 0 auto;
+            height: 410px;
+            overflow: hidden;
+        }
+        li{
+            list-style: none;
+            height: 100px;
+            width: 200px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            transition: all .4s ease;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c
+            <span id="back">222</span>
+        </li>
+        <li>d</li>
+    </ul>
+</body>
+<script>
+    const oUl = document.getElementsByTagName('ul')[0];
+    const oLi = document.getElementsByTagName('li')[2];
+    const oBack = document.getElementById('back');
+    oLi.onclick = function(){
+        let prevE1 = this.previousElementSibling;
+        let prevE2 = prevE1.previousElementSibling;
+        let nextE3 = this.nextElementSibling;
+        prevE1.style.transform = `translateY(-205px)`;
+        prevE2.style.transform = `translateY(-100px)`;
+        nextE3.style.transform = `translateY(-200px)`;
+        this.style.transform = `translateY(-205px)`;
+        this.style.height = `395px`;
+    }
+
+    oBack.onclick = function(e){
+        e.cancelBubble = true;
+        let child = oUl.children;
+        for(let i = 0; i<child.length; i++){
+            child[i].style.transform = 'translateY(0px)';
+        }
+        oLi.style.height = '100px';
+    }
+</script>
+</html>

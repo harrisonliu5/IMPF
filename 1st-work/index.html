@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="node_modules//systemjs/dist/system.js"></script>
+    <script>
+    SystemJS.config({
+        map: {
+            jquery: './node_modules/jquery/dist/jquery.min.js',
+            thumb: './unit/praise-es5.js'
+        },
+            meta: {
+                jquery: {
+                    exports: '$',
+                    format: 'global'
+                },
+                thumb: {
+                    format: 'global',
+                    exports: 'Praise',
+                }
+            }
+        })
+        window.define = SystemJS.amdDefine;
+        window.require = window.requirejs = SystemJS.amdRequire;
+    </script>
+</head>
+<body>
+    <button id="praise">点赞</button>
+    <span id="praiseCount"></span>
+</body>
+<script type="text/javascript">
+    SystemJS.import('jquery').then(function($){
+         SystemJS.import('./unit/praise-es5.js').then(function (thumb) {
+             var praise = new thumb.Thumb();
+             $.fn.extend({
+                 clickGood: function(){
+                     praise.clickThumb();
+                 },
+             });
+            $('#praiseCount').text(praise.getPraise());
+            $('#praise').on('click', function () {
+                $.fn.clickGood();
+                $('#praiseCount').text(praise.getPraise());
+             });
+        });
+    });
+</script>
+</html>

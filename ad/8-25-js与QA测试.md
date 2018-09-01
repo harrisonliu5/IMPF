@@ -74,3 +74,16 @@ Benchmark基准测试方法，它并不是简单地统计 执行多少次测试�
 sudo yarn global add backstopjs
 backstop init
 backstop test 注意图片的格式
+
+## jasmin语法
+
+### describe测试包（官方称之为suite）
+
+describe 是 Jasmine 的全局函数，作为一个 Test Suite 的开始，它通常有 2 个参数：字符串和方法。字符串作为特定 Suite 的名字和标题。方法是包含实现 Suite 的代码。
+
+### it测试用例（官方称之为spec） 
+
+it 有 2 个参数，字符串和方法。
+每个 Spec 包含一个或多个 expectations 来测试需要测试代码。
+Jasmine 中的每个 expectation 是一个断言，可以是 true 或者 false。
+当每个 Spec 中的所有 expectations 都是 true，则通过测试。有任何一个 expectation 是 false，则未通过测试。而方法的内容就是测试主体。
