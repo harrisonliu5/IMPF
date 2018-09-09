@@ -81,3 +81,7 @@ eventEmitters -> Events -> Event loop -> Event Handlers
 fs = require("fs")
 
 操作文件的读和写
+
+##异步IO
+
+cpu 时钟周期: 1/cpu 主频 -> 1s/3.1 GHz
