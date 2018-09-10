@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block title %} index {% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="stylesheet/index.css"/>
+<script type="text/javascript" src="scripts/index.js" ></script>
+{% endblock %}
+
+{% block content %}
+<form>
+    <div class="form-group">
+        <label for="username">username</label>
+        <input type="text" class="form-control" id="username" aria-describedby="username" placeholder="Enter username" />
+    </div>
+    <button type="submit" id="submit" class="btn btn-primary">提交</button>
+</form>
+{% endblock %}
