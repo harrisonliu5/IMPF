@@ -16,5 +16,37 @@
 
 高内聚，低耦合
 
+## loader
 
+原理: 把文件转成字符串,然后在转成 AST静态语法树，然后分析语法树。
+ 
+loader 是从后往前执行，第一个是最后一个执行。
 
+ 用于 AST acorn acorn-walk
+
+``` javascript
+//前置的钩子
+ module.exports.pitch = function(rRquest,pRequest,data){
+     data.value = "ddd"
+   }
+   // 前置钩子先执行在执行loader 
+```
+
+## plugin
+
+实现插件机制的大体方式
+创建-webpack在内部对象上创建各种钩子。
+注册-插件将自己的方法注册到对应钩子上
+调用-在编译过程中，会适时地触发相应钩子，因此也就触发插件的方法
+
+```javascript
+class ConsoleLogOnBuildWebpackPlgin{
+    app(compiler){
+        compiler.hooks.run.tap(pluginName,compilation=>{
+            console.log('构建开始')
+        })
+    }
+}
+```
+
+compiler(所有的构建) - compilation (每一次构建)extends tapable(订阅发布)

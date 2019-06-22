@@ -1,0 +1,4 @@
+.test{
+    --bgcolor:  red;
+    color:  var(--bgcolor);
+}

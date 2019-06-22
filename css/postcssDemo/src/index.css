@@ -1,0 +1,14 @@
+@custom-selector :--header h1,h2,h3,h4,h5,h6;
+
+:root {
+    --bgcolor: yellowgreen;
+}
+
+.main-c {
+    & .test {
+        color: var(--bgcolor);
+    }
+    & :--header {
+        color: red;
+    }
+}

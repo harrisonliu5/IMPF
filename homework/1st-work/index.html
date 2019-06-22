@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="node_modules//systemjs/dist/system.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.21.3/system.js"></script>
     <script>
     SystemJS.config({
         map: {
-            jquery: './node_modules/jquery/dist/jquery.min.js',
+            jquery: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js',
             thumb: './unit/praise-es5.js'
         },
             meta: {
@@ -29,7 +29,7 @@
 </head>
 <body>
     <button id="praise">点赞</button>
-    <span id="praiseCount"></span>
+    <span id="praiseCount">0</span>
 </body>
 <script type="text/javascript">
     SystemJS.import('jquery').then(function($){

@@ -1,0 +1,92 @@
+[2018-11-16T22:30:32.543] [ERROR] cheese - 出错了
+[2018-11-16T22:31:24.709] [ERROR] cheese - AwilixResolutionError: Could not resolve 'getData'.
+
+Resolution path: getData
+    at resolve (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix/lib/container.js:226:23)
+    at Object.get (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix/lib/container.js:63:32)
+    at IndexController.indexAction (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/dist/routes/IndexController.js:19:44)
+    at memberInvoker (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix-koa/lib/invokers.js:80:45)
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/lib/router.js:346:16
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at /Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:36:12
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/lib/router.js:351:31)
+[2018-11-16T22:33:30.940] [ERROR] cheese - AwilixResolutionError: Could not resolve 'getData'.
+
+Resolution path: getData
+    at resolve (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix/lib/container.js:226:23)
+    at Object.get (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix/lib/container.js:63:32)
+    at IndexController.indexAction (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/dist/routes/IndexController.js:19:44)
+    at memberInvoker (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix-koa/lib/invokers.js:80:45)
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/lib/router.js:346:16
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at /Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:36:12
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/lib/router.js:351:31)
+[2018-11-16T22:33:32.039] [ERROR] cheese - AwilixResolutionError: Could not resolve 'getData'.
+
+Resolution path: getData
+    at resolve (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix/lib/container.js:226:23)
+    at Object.get (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix/lib/container.js:63:32)
+    at IndexController.indexAction (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/dist/routes/IndexController.js:19:44)
+    at memberInvoker (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix-koa/lib/invokers.js:80:45)
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/lib/router.js:346:16
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at /Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:36:12
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/lib/router.js:351:31)
+[2018-11-16T22:33:32.350] [ERROR] cheese - AwilixResolutionError: Could not resolve 'getData'.
+
+Resolution path: getData
+    at resolve (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix/lib/container.js:226:23)
+    at Object.get (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix/lib/container.js:63:32)
+    at IndexController.indexAction (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/dist/routes/IndexController.js:19:44)
+    at memberInvoker (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix-koa/lib/invokers.js:80:45)
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/lib/router.js:346:16
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at /Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:36:12
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/lib/router.js:351:31)
+[2018-11-16T22:33:32.813] [ERROR] cheese - AwilixResolutionError: Could not resolve 'getData'.
+
+Resolution path: getData
+    at resolve (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix/lib/container.js:226:23)
+    at Object.get (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix/lib/container.js:63:32)
+    at IndexController.indexAction (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/dist/routes/IndexController.js:19:44)
+    at memberInvoker (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix-koa/lib/invokers.js:80:45)
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/lib/router.js:346:16
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at /Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:36:12
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/lib/router.js:351:31)
+[2018-11-16T22:33:33.118] [ERROR] cheese - AwilixResolutionError: Could not resolve 'getData'.
+
+Resolution path: getData
+    at resolve (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix/lib/container.js:226:23)
+    at Object.get (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix/lib/container.js:63:32)
+    at IndexController.indexAction (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/dist/routes/IndexController.js:19:44)
+    at memberInvoker (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix-koa/lib/invokers.js:80:45)
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/lib/router.js:346:16
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at /Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:36:12
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/lib/router.js:351:31)
+[2018-11-16T22:35:20.569] [ERROR] cheese - AwilixResolutionError: Could not resolve 'getData'.
+
+Resolution path: getData
+    at resolve (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix/lib/container.js:226:23)
+    at Object.get (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix/lib/container.js:63:32)
+    at IndexController.indexAction (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/dist/routes/IndexController.js:19:35)
+    at memberInvoker (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/awilix-koa/lib/invokers.js:80:45)
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/lib/router.js:346:16
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at /Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/node_modules/koa-compose/index.js:36:12
+    at dispatch (/Users/harrisonliu/gitub/IMPF/framework/mpa-awilix/node_modules/koa-router/lib/router.js:351:31)

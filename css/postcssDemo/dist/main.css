@@ -1,0 +1,10 @@
+:root {
+    --bgcolor: yellowgreen;
+}
+.main-c .test {
+        color: yellowgreen;
+        color: var(--bgcolor);
+    }
+.main-c h1,.main-c h2,.main-c h3,.main-c h4,.main-c h5,.main-c h6 {
+        color: red;
+    }
