@@ -1,4 +1,4 @@
-# webpack
+# Webpack
 
 ## 编译
 
@@ -7,19 +7,19 @@
 > happyPack在少量的entry的时候体现不出来效果 在webpack5里已经继承了。
 
 ``` javascript
-    const HappyPack = require('happypack');
-    const os = require('os');
-    // 开辟一个线程池
-    const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
-    module.exports.plugin = [
-        new HappyPack({
-            id: 'babel',
-            threadPool: happyThreadPool,
-            loaders: [{
-                loader: 'babel-load',
-            }]
-        })
-    ]
+const HappyPack = require('happypack');
+const os = require('os');
+// 开辟一个线程池
+const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
+module.exports.plugin = [
+  new HappyPack({
+    id: 'babel',
+    threadPool: happyThreadPool,
+    loaders: [{
+      loader: 'babel-load',
+    }]
+  })
+]
 ```
 
 ## 模块化
@@ -78,7 +78,7 @@ class ConsoleLogOnBuildWebpackPlugin{
 }
 ```
 
-### 构建流程
+## 构建流程
 
 > tapable是webpack来实现plugin的binding和applying。tapable是一个用于事件发布订阅执行的插件架构。
 > 而 compiler 和 compilation 都继承 tapable，所有身上都有tap函数。
@@ -89,6 +89,46 @@ class ConsoleLogOnBuildWebpackPlugin{
 4. 使用 parser 从 chunk 上解析依赖。
 5. 使用 module 和 dependency 管理模块之间的依赖关系。
 6. 使用 Template 基于 compilation 的数据生成结果代码。
+
+### Compiler
+
+compiler代表了完整的 webpack 环境配置。在启动 webpack 时 compiler 一次性创建，并配好了所有可操作的设置。包括option 、loader 和 plugin 。
+
+webpack 插件里可以通过 compiler 对象访问 webpack 的主环境。
+
+### Compilation
+
+compilation 对象代表了一次资源版本创建，当运行开发环境中间件时，每当检测到一个文件发生变化时，就会创建一个新的 compilation ，从而生成一组新的编译资源。
+
+一个 compilation 对象代表了当前的模块资源、编译生成资源、变化的文件、以及被跟踪依赖的状态信息。同时提供了很多关键的步骤的回调，以供插件做自己定义时选择使用。
+
+### Chunk
+
+chunk 用于表示 chunk 的类，对于构建时需要的 chunk 对象由 compilation 创建后保存管理 。
+
+ webpack 中最核心的负责编译的 Compiler 和负责创建 bundles 的 Compilation 都是 Tapable 的实例。
+
+ ### Module
+
+ module 用于表示代码的基础类，衍生出很多子类用于处理不同的情况，关于代码模块所有的信息都会存在 Module 实例中。
+
+ 每当一个 Module 实例被创建后，比较重要的一步是执行 compilation.buildModule 这个方法，它会调用 Module 实例的 build 方法来创建 Module 实例需要的一些依赖，然后调用自身的 runLoaders 方法。
+
+ runLoaders: loader-runner,执行对应的 loaders 将代码源码内容一一交由配置中指定的 loader 处理后，在将结果保存起来。
+
+### Parser
+
+ 基于 acorn 来分析 AST 语法树， 解析出代码模块的依赖。
+
+ ### Dependency
+
+ 解析时用于保存代码模块对应的依赖使用的对象。 Module 实例的 build 方法在执行完对应的 loader 时， 处理完模块代码自身的转换后，继续调用 Parser 的实例来解析自身的依赖。然后结果放在 Module.dependencies 中。
+
+  首先保存的是依赖路径，后续会经由 compilation.processModuleDependencies 方法，再来处理各个依赖模块，递归去创建整个依赖。
+
+  ### Template
+
+  生成最终代码要使用的代码模块，像上述提到的胶水代码就是用对应的 Template 来生成。
 
 ![avr](dev-img.png)
 
@@ -129,7 +169,7 @@ compiler.hooks.done.tapAsync('PluginName', (states, callback) => { callback() })
 > 名称带有 Parallel ，注册的事件函数都是并行调用，名称带有 Bail 的注册的事件函数都会顺序调用，一直到处理方法有返回值带有 waterfall 的。
 > 每个注册的事件函数都会将上一个函数的返回值当做参数。
 
-## webpack运行流程
+### webpack运行流程代码实现
 
 ``` javascript
     // 1. 创建初始化函数
