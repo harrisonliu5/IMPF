@@ -25,7 +25,7 @@ with(obj)  如果obj里没有的,会变成全局变量,有的才会改变；
     width(obj){
         obj.b = 2;
     }
-
+    
     console.log(obj.b)   //undifined;
 
 ### 变量提升和函数提升
@@ -169,7 +169,7 @@ with(obj)  如果obj里没有的,会变成全局变量,有的才会改变；
 - for 循环中使用带标记。continue
 
         var i, j;
-
+    
         loop1:
         for (i = 0; i < 3; i++) {      //The first for statement is labeled "loop1"
             loop2:
@@ -180,7 +180,7 @@ with(obj)  如果obj里没有的,会变成全局变量,有的才会改变；
                 console.log("i = " + i + ", j = " + j);
             }
         }
-
+    
         // Output is:
         //   "i = 0, j = 0"
         //   "i = 0, j = 1"
@@ -220,7 +220,7 @@ with(obj)  如果obj里没有的,会变成全局变量,有的才会改变；
 
     import {$} from 'jqueryjs';   // es6 
     var $ = require('jquery.js)['$'];   //amd
-
+    
     export {$};    //es6
     export.$ = $; //amd
 

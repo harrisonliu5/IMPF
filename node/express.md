@@ -27,17 +27,17 @@ app.all()是指对一个path上的所有请求都需要执行中间件。
     app.get('/ab?cd', function(req, res) {
         res.send('ab?cd');
     });
-
+    
     // 匹配 abcd、abbcd、abbbcd等
     app.get('/ab+cd', function(req, res) {
         res.send('ab+cd');
     });
-
+    
     // 匹配 abcd、abxcd、abRABDOMcd、ab123cd等
     app.get('/ab*cd', function(req, res) {
         res.send('ab*cd');
     });
-
+    
     // 匹配 /abe 和 /abcde
     app.get('/ab(cd)?e', function(req, res) {
         res.send('ab(cd)?e');
@@ -49,7 +49,7 @@ app.all()是指对一个path上的所有请求都需要执行中间件。
         app.get(/a/, function(req, res) {
             res.send('/a/');
         });
-
+    
         // 匹配 butterfly、dragonfly，不匹配 butterflyman、dragonfly man等
         app.get(/.*fly$/, function(req, res) {
             res.send('/.*fly$/');
@@ -84,16 +84,16 @@ app.all()是指对一个path上的所有请求都需要执行中间件。
             console.log('step first 1');
             next();
         }
-
+    
         var step2 = function (req, res, next){
             console.log('step first 2');
             next();
         }
-
+    
         var step3 = function (req, res){
             res.send('Hellow World');
         }
-
+    
         app.get('/',[step1.step2,step3]);
 
 #### 混合使用函数和函数数组处理路由：
@@ -102,12 +102,12 @@ app.all()是指对一个path上的所有请求都需要执行中间件。
             console.log('CB0');
             next();
         }
-
+    
         var step2 = function (req, res, next) {
             console.log('CB1');
             next();
         }
-
+    
         app.get('/', [step1, step2], function (req, res, next) {
             console.log('response will be sent by the next function ...');
             next();
@@ -150,26 +150,26 @@ app.all()是指对一个path上的所有请求都需要执行中间件。
 可使用 express.Router 类创建模块化、可挂载的路由句柄。
 
 Router 实例是一个完整的中间件和路由系统，因此常称其为一个 “mini-app”。
-   
+
         var express = require('express');
         var router = express.Router();
-
+    
         // 该路由使用的中间件
         router.use(function timeLog(req, res, next) {
             console.log('Time: ', Date.now());
             next();
         });
-
+    
         // 定义网站主页的路由
         router.get('/', function(req, res) {
             res.send('Birds home page');
         });
-
+    
         // 定义 about 页面的路由
         router.get('/about', function(req, res) {
             res.send('About birds');
         });
-
+    
         module.exports = router;
 
 
@@ -210,7 +210,7 @@ Express 应用可使用如下几种中间件：
         // 渲染常规页面
         res.render('regular');
     });
-
+    
     // 处理 /user/:id， 渲染一个特殊页面
         app.get('/user/:id', function (req, res, next) {
         res.render('special');

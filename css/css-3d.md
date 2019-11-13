@@ -29,13 +29,13 @@
     window.addEventListener("devicemotion",(event)=>{
             //event.acceleration;
             //考虑的xyz上移动加速度的值
-
+    
             //event.accelerationIncludingGravity;
             //考虑了重力加速度的值
-
+    
             //event.rotationRate;
             //设备旋转的角度
-
+    
         },true);
 
 ## compassneedscalibration

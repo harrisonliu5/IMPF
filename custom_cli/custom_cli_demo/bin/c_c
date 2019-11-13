@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+const figlet = require("figlet");
+const Printer = require("@darkobits/lolcatjs");
+const program = require("commander");
+const inquirer = require("inquirer");
+
+const txt = figlet.textSync("Boo!");
+// 默认输入版本时
+program.version(Printer.default.fromString(txt), "-v,--version");
+const bindHandle = {
+    init() {
+        inquirer.prompt([
+            {
+                type: "list",
+                name: "sKind",
+                message: "请选择使用的语言",
+                choices: ["Es6", "TypeScript"]
+            }
+        ])
+            .then(answers => {
+                // Use user feedback for... whatever!!
+            });
+    }
+};
+program.usage("<cmd> [env]")
+    .arguments("<cmd> [env]")
+    .action(function (cmd, otherParams) {
+        const handler = bindHandle[cmd];
+        if (handler) {
+            handler(otherParams);
+        } else {
+            console.log("暂未定义 " + cmd);
+        }
+    });
+
+// 获取用户的命令行参数
+program.parse(process.argv);

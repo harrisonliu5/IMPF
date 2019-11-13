@@ -25,7 +25,7 @@ __浏览器不同域名不能相互访问cookie,但是内部提交表单不受�
         document.domain = 'xxx.com'; //设置同源
         document.cookie = 'text1=hello';
         </script>
-
+    
         text2.xxx.com/b.html
         <script>
         document.cookie
@@ -75,12 +75,12 @@ __浏览器不同域名不能相互访问cookie,但是内部提交表单不受�
         <header>
             <nav></nav>
         </header>
-
+    
         <div>
             <section></section>
             <section></section>
         </div>
-
+    
         <footer></footer>
 
 ### 尽量少写html标签
