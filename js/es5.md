@@ -169,7 +169,7 @@ with(obj)  如果obj里没有的,会变成全局变量,有的才会改变；
 - for 循环中使用带标记。continue
 
         var i, j;
-    
+        
         loop1:
         for (i = 0; i < 3; i++) {      //The first for statement is labeled "loop1"
             loop2:
@@ -180,7 +180,7 @@ with(obj)  如果obj里没有的,会变成全局变量,有的才会改变；
                 console.log("i = " + i + ", j = " + j);
             }
         }
-    
+        
         // Output is:
         //   "i = 0, j = 0"
         //   "i = 0, j = 1"
@@ -201,7 +201,7 @@ with(obj)  如果obj里没有的,会变成全局变量,有的才会改变；
             }
         }
     }
-    var a = fun(0)'
+    var a = fun(0);
     a.fun(1);
     a.fun(2);
     var b = fun(0).fun(1).fun(2).fun(3);
