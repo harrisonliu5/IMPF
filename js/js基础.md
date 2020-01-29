@@ -2,9 +2,39 @@
 
 > js单线程是为了操作dom
 
+## 数据类型
+
+> 1. 基本数据类型：number、string、boolean、symbol、bigInt、null、undefined、
+> 2. 复合数据类型：object
+
+### 为falsy
+
+只有 6 种 [falsy](https://developer.mozilla.org/zh-CN/docs/Glossary/Falsy) 值:
+
+- `undefined`
+
+- `null`
+
+- `NaN`
+
+- `0`
+
+- `''` (empty string)
+
+- `false`
+
+  ```javascript
+  0             // false
+  new Number(0)  // true
+  ('')					 // false
+  (' ')						 // true
+  new Boolean(false) 	 // true
+  undefined					 // false
+  ```
+
 ## 作用域
 
-es5 只有函数级作用域
+es5 只有函数级作用域，es6有块级作用域。
 
 > 变量只会提到函数的最顶的，如果没有函数就提升到window；
 
@@ -57,22 +87,6 @@ console.log(obj.b)   //undifined;
    sayHi()
    ```
 
-### 函数的参数和函数内部的变量同名时，优先级相同
-
-```javascript
-var a = 10;
-function ss(a){
-    alert(a); //因为a是形参，优先级高于 var a; 所以 局部变量a的声明其实被忽略了。
-    var a = 20;
-}
-ss(a);  //10
-```
-
-### 函数参数有默认值
-
-1. 如果参数有默认值,则会在函数初始化的时候形成一个单独的作用域。arguments不会影响参数结果。如果没有则不会形成单独的作用域，arguments会被参数影响。
-2. 函数的参数是按址引用的。
-
 ## 闭包
 
 > 闭包是内部函数可以访问外部变量，但外层函数不能访问内部变量。换句话说拿到本不该拿的东西。
@@ -108,19 +122,27 @@ console.log(a) //  1000;
 
 ### 构造函数
 
-- 没有返回值或者返回的是简单的数据类型 this就是对象的实例
-- 如果返回的是对象类型，this就是指那个对象，
+- 没有返回值或者返回的是简单的数据类型 ，this就是对象的实例。
+
+- 如果返回的是对象类型，this就是指那个对象。
+
+- 如果没有使用new，则新建的实例是`undefined`，则构造函数里的this指向全局。
 
     ```javascript
     this.a = 1000;
-    function test(){
+    function Test(b){
         this.a = 1;
+      	this.b = b;
     }
-    test.prototype.geta = function(){
+    Test.prototype.geta = function(){
         alert(this.a);
     }
-    var p = new test;
+    var p = new Test(2);
+    var s = Test(3);
+    
     p.geta();       //1
+    console.log(s) // undefined
+    this.b = 3;
     ```
 
 ### 对象函数中
@@ -157,7 +179,7 @@ var t = obj.test();
 t();                // 1000
 ```
 
-### 箭头函数
+### 箭头函数中的this
 
 > 箭头函数指向父级的this，也就是bind父级的this。
 
@@ -182,7 +204,80 @@ obj.init();
 
 而 call 和 apply 会立刻执行 ，而bind需要调用才执行。
 
-## 面向对象
+## 函数
+
+### 箭头函数
+
+1. 箭头函数没有 prototype，即没有原型。
+2. 箭头函数本身的this指向不能改变，但可以修改它要继承的对象的this。
+3. 箭头函数的this指向全局，使用 `arguments` 会报未声明的错误。
+4. 箭头函数的this指向普通函数时,它的 `argumens` 继承于该普通函数。
+5. 用`new`调用箭头函数会报错，因为箭头函数没有`constructor`。
+6. 箭头函数不支持`new.target`。
+7. 箭头函数不支持重命名函数参数,普通函数的函数参数支持重命名。
+
+### 函数的参数
+
+#### 函数的参数和函数内部的变量同名时，优先级相同
+
+```javascript
+var a = 10;
+function ss(a){
+    alert(a); //因为a是形参，优先级高于 var a; 所以 局部变量a的声明其实被忽略了。
+    var a = 20;
+}
+ss(a);  //10
+```
+
+#### 函数参数有默认值
+
+1. 如果参数有默认值,则会在函数初始化的时候形成一个单独的作用域。arguments不会影响参数结果。如果没有则不会形成单独的作用域，arguments会被参数影响。
+
+2. 函数的参数基本类型按值引用，复合类型是按址引用的。
+
+3. 如果对复合参数进行解构并在函数内更改参数的值，则依然会影响复合参数。
+
+   ``` javascript
+   const person = {
+     name: "Lydia",
+     age: 21
+   }
+   const changeAge = (x = { ...person }) => x.age += 1;
+   const changeAgeAndName = (x = { ...person }) => {
+     x.age += 1
+     x.name = "Sarah"
+   };
+   changeAge(person);  
+   changeAgeAndName();
+   console.log(person); // {name: "Lydia", age: 22}
+   ```
+
+   
+
+#### 函数调用用字符串模板
+
+> 如果使用标记模板字面量，第一个参数的值总是包含字符串的数组。其余的参数获取的是传递的表达式的值！
+
+``` javascript
+function getPersonInfo(one, two, three) {
+  console.log(one)
+  console.log(two)
+  console.log(three)
+}
+
+const person = 'Lydia'
+const age = 21
+
+getPersonInfo`${person} is ${age} years old`
+
+// one: ["", " is ", " years old"] 
+// two: "Lydia" 
+// three: 21
+```
+
+## 对象
+
+> 除了基本对象外，所有对象都有原型。
 
 ### 创建对象三种模式
 
@@ -308,10 +403,59 @@ console.log(Tea.prototype.constructor);
 ### Object 实例和Object 原型对象
 
 > JavaScript中的所有对象都来自**Object**；
-> 		所有对象从Object.prototype继承方法和属性，尽管它们可能被覆盖。
-> 		例如，其他构造函数的原型将覆盖**constructor**属性并提供自己的**toString()**方法。
+> 所有对象从Object.prototype继承方法和属性，尽管它们可能被覆盖。
+> 例如，其他构造函数的原型将覆盖**constructor**属性并提供自己的**toString()**方法。
+
+### ?. (可选链操作符)
+
+用来自行判断对象中是否有某个属性有则返回，没有则返回`undefined`;
+
+``` javascript
+const person = {
+	firstName: "Lydia",
+	lastName: "Hallie",
+	pet: {
+		name: "Mara",
+		breed: "Dutch Tulip Hound"
+	},
+	getFullName() {
+		return `${this.firstName} ${this.lastName}`;
+	}
+};
+console.log(person.pet?.name); 					// Mara
+console.log(person.pet?.family?.name); // undefined
+console.log(person.getFullName?.());   // Lydia Hallie
+console.log(member.getLastName?.());   // undefined
+```
 
 
+
+### 类函数
+
+1. 我们可以将类设置为等于其他类/函数构造函数。
+
+## 事件
+
+### 事件执行
+
+1. 默认事件执行是在冒泡阶段，除非设置为捕获。
+
+2. event.target就是指当前事件的对象。
+
+   ``` html
+   <div onclick="console.log('div')">
+     <p onclick="console.log('p')">
+       Click here!
+     </p>
+   </div>
+   <!-- p, div -->
+   
+   <!--  2    -->
+   <div onclick="console.log('div')">
+     <button onclick="console.log('button')">按钮</button>
+    </div>
+   <!--event.target = button -->
+   ```
 
 ## label : statement
 
@@ -374,6 +518,41 @@ var $ = require('jquery.js)['$'];   //amd
 export {$};    //es6
 export.$ = $; //amd
 ```
+
+### CommonJS
+
+1. `import` 是代码在编译的时候就执行，所以被导入的模块先执行，而 `require()` 是在代码运行时根据需要加载依赖。
+
+   ``` javascript
+   // index.js
+   console.log('running index.js');
+   import { sum } from './sum.js';
+   console.log(sum(1, 2));
+   
+   // sum.js
+   console.log('running sum.js');
+   export const sum = (a, b) => a + b;
+   
+   // 'running sum.js' 'running index.js' 3;
+   // require()
+   // 'running index.js' 'running sum.js' 3;
+   ```
+
+2. import * as name 语法。
+
+   ``` javascript
+   // module.js 
+   export default () => "Hello world"
+   export const name = "Lydia"
+   
+   // index.js 
+   import * as data from "./module"
+   
+   console.log(data)
+   // { default: function default(), name: "Lydia" }
+   ```
+
+   `data`对象具有默认导出的`default`属性，其他属性具有指定exports的名称及其对应的值。
 
 ## .的运算符优先
 
