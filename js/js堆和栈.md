@@ -54,12 +54,12 @@
     fun1();
 ```
 
-1.js执行首先程序会创建 GO(globalContext)。
+1. js执行首先程序会创建 GO(globalContext)。
 
-2.每执行一个函数会创建一个可执行上下文EC(Execution Context)。
+2. 每执行一个函数会创建一个可执行上下文EC(Execution Context)。
 
-3.有一个全局执行上下文栈 Execution Context Static(ECS)，将执行的函数压入栈中; 先执行的压在底下。
-先进后出
+3. 有一个全局执行上下文栈 Execution Context Static(ECS)，将执行的函数压入栈中; 先执行的压在底下。
+   先进后出
 
 ```js
 ECS=[
@@ -73,9 +73,8 @@ ECS=[
 ]
 ```
 
-4.AO对象分两个阶段
-
-   4.1. 创建阶段：变量提升,值都是undefined。
+4. AO对象分两个阶段
+   1. 创建阶段：变量提升,值都是undefined。
 
 ```js
 fun1ExecutionContext = {
@@ -86,7 +85,7 @@ fun1ExecutionContext = {
 }
 ```
 
-   4.2. 执行阶段：按照函数的执行上下文进行执行。
+​		2. 执行阶段：按照函数的执行上下文进行执行。
 
 ```js
 fun1ExecutionContext = {
@@ -101,14 +100,14 @@ fun1ExecutionContext = {
 }
 ```
 
-5.VO就是函数上下文的链接，AO是函数自带的。
+5. VO就是函数上下文的链接，AO是函数自带的。
 
 ### 总结
 
 js 同步执行栈，异步执行队列。队列有优先级。__队列->先进先出__。
 
 __函数调用->创建AO->执行->压栈->弹栈，__
-		__函数不执行不压栈。__
+__函数不执行不压栈。__
 
 ### 算法
 
@@ -119,4 +118,4 @@ __函数调用->创建AO->执行->压栈->弹栈，__
 ## MVC框架
 
 controller 可以控制view和model
-		view 可以控制controller和model
+view 可以控制controller和model

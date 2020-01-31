@@ -22,7 +22,7 @@
 - `O(2^n)`: Exponential Growth 指数
 - `O(n!)`: Factorial 阶乘
 
-![时间复杂度图表](D:\custom\IMPF\data_structure and algorithms\img\time complexity.png)
+![时间复杂度图表](\img\time complexity.png)
 
 #### 空间复杂度
 
