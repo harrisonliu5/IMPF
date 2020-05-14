@@ -136,3 +136,24 @@ __当display设置成flex或者inline-flex时产生。__
 > background: bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment initial|inherit;
 
 > position/bg-size ->__后面的size代表,x方向拉伸或者缩放，y方向拉伸或者缩放__。
+
+
+
+## 回流重绘
+
+- **重绘(repaint)**: 当元素样式的改变不影响布局时，浏览器将使用重绘对元素进行更新，此时由于只需要UI层面的重新像素绘制，因此 **损耗较少**
+
+- **回流(reflow)**: 当元素的尺寸、结构或触发某些属性时，浏览器会重新渲染页面，称为回流。此时，浏览器需要重新经过计算，计算后还需要重新页面布局，因此是较重的操作。会触发回流的操作:
+  - 页面初次渲染
+  - 浏览器窗口大小改变
+  - 元素尺寸、位置、内容发生改变
+  - 元素字体大小变化
+  - 添加或者删除可见的 dom 元素
+  - 激活 CSS 伪类（例如：:hover）
+  - 查询某些属性或调用某些方法
+    - clientWidth、clientHeight、clientTop、clientLeft
+    - offsetWidth、offsetHeight、offsetTop、offsetLeft
+    - scrollWidth、scrollHeight、scrollTop、scrollLeft
+    - getComputedStyle()
+    - getBoundingClientRect()
+    - scrollTo()

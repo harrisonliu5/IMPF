@@ -1,4 +1,4 @@
-# package.Json里关于stylelint的配置went
+# package.Json里关于stylelint的配置
 
 在package.json文件中，会使用stylelint和其他相关的第三方插件用来检查代码格式和修复。
 

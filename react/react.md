@@ -185,6 +185,24 @@ const Father = () => {
 
  uesRef 是创建一个ref对象进行Dom的操作
 
+``` javascript
+import React from 'react';
+const { uesRef } = React;
+
+// 通过ref访问DOM
+const childDom = uesRef();
+<div ref={childDom}></div>
+// 通过ref.current访问dom
+childDom.current;
+
+// 存储数据防止渲染更新时清零 data的类型可以是任何。
+const data = uesRef(data)
+// 通过data.current来读取和修改
+data.current
+```
+
+
+
 `useImperativeHandle` 可以让父组件直接调用 `ref` 的方法，应该和 `forwardRef` 一起使用。
 
 ``` javascript
