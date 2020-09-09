@@ -37,7 +37,7 @@
     "webpack-build-notifier": "^0.1.30",
     "webpack-cli": "^3.1.2",
     "webpack-merge": "^4.1.4",
-    "yargs-parser": "^11.1.0"
+    "yargs-parser": "^13.1.2"
   },
   "dependencies": {
     "co": "^4.6.0",
